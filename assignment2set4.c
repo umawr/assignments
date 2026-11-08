@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 // 1. Write a program to check if a matrix is orthogonal or not.
 
@@ -67,4 +68,27 @@ int ortho(int order, int matrix[order][order], int transpose[order][order])
     else 
         printf("\nMatrix is NOT an identity\n");
 
+}
+
+// 2. Write a program to check if a number is automorphic or not
+
+void automorphic(int input);
+
+int main()
+{
+  int input;
+  printf("Enter a number\n");
+  scanf("%d", &input);
+  automorphic(input);
+  return 0;
+}
+
+void automorphic(int input)
+{
+  int count = (input == 0) ? 1 : (int)log10(input) + 1; 
+  if ((int)pow(input, 2) % (int)pow(10, count) == input)
+    printf("%d is automorphic\n", input);
+  else
+    printf("%d is not automorphic\n", input);
+  return;
 }

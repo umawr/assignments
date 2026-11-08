@@ -246,3 +246,35 @@ int main()
     printf("\n");
     return 0;
 }
+
+// 9. Sparse matirx determiner 
+
+int main() 
+{
+    int r, c, i, j;
+    int zeros = 0, nonZeros = 0;
+    int mat[10][10];
+
+    printf("Enter rows and columns (max 10): ");
+    scanf("%d %d", &r, &c);
+
+    printf("Enter matrix elements:\n");
+    for (i = 0; i < r; i++)
+    {
+        for (j = 0; j < c; j++) 
+        {
+            scanf("%d", &mat[i][j]);
+            if (mat[i][j] == 0)
+                zeros++;
+            else
+                nonZeros++;
+        }
+    }
+    if (zeros > nonZeros)
+        printf("The matrix is a Sparse Matrix. (Zeros: %d, Non-zeros: %d)\n", zeros, nonZeros);
+    else
+        printf("The matrix is NOT a Sparse Matrix. (Zeros: %d, Non-zeros: %d)\n", zeros, nonZeros);
+    }
+
+    return 0;
+}

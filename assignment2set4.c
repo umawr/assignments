@@ -129,3 +129,19 @@ void sort(int length, int array[length])
     printf("Elements no. %d is %d\n", i + 1, array[i]);
   return; 
 }
+
+// 4. C program to count number of digits in a number via recursions
+
+int count(int n) {
+    if (n == 0) return 0;
+    return 1 + count(n / 10);
+}
+
+int main() {
+    int n;
+    printf("Input a number : ");
+    scanf("%d", &n);   
+    int ans = (n == 0) ? 1 : count(n);
+    printf("The number of digits in the number is : %d\n", ans);
+    return 0;
+}

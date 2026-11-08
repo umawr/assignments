@@ -278,3 +278,5 @@ int main()
 
     return 0;
 }
+
+// 10. Find trace of matrix

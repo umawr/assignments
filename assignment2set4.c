@@ -14,7 +14,7 @@ int main(void)
     for (int i = 0; i < order; i++)
         for(int j = 0; j < order; j++)
         {
-            printf("Enter m(%d %d)th element\t", i, j);
+            printf("Enter the (%d, %d)th element\t", i + 1, j + 1);
             scanf("%d", &matrix[i][j]);
         }
     printf("\nMatrix is\n\n");
@@ -29,7 +29,7 @@ int main(void)
 int transpose(int order, int matrix[order][order])
 {
     int transpose[order][order];
-    printf("\nTranspose of matrix is\n\n");
+    printf("\nTranspose of Matrix is\n\n");
     for (int i = 0; i < order; i++)
     {
         for(int j = 0; j < order; j++)
@@ -63,7 +63,7 @@ int ortho(int order, int matrix[order][order], int transpose[order][order])
         if (identity[i][i] == 1)
             count++;
     if (count == order)
-        printf("\nMatrix is an identity\n");
+        printf("\nMatrix is an identity\n\n");
     else 
         printf("\nMatrix is NOT an identity\n");
 

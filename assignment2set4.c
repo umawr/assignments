@@ -132,16 +132,86 @@ void sort(int length, int array[length])
 
 // 4. C program to count number of digits in a number via recursions
 
-int count(int n) {
+int count(int n)
+{
     if (n == 0) return 0;
     return 1 + count(n / 10);
 }
 
-int main() {
+int main() 
+{
     int n;
     printf("Input a number : ");
     scanf("%d", &n);   
     int ans = (n == 0) ? 1 : count(n);
     printf("The number of digits in the number is : %d\n", ans);
+    return 0;
+}
+
+//  5. Find number of primes between two numbers
+
+int isPrime(int n, int i) {
+    if (n <= 1) return 0;
+    if (i * i > n) return 1;
+    if (n % i == 0) return 0;
+    return isPrime(n, i + 1);      
+}
+
+int countPrimes(int p, int q)
+{
+    if (p > q) return 0;
+    return isPrime(p, 2) + countPrimes(p + 1, q);
+}
+
+int main() 
+{
+    int p, q;
+    printf("Input range (p and q) : ");
+    scanf("%d %d", &p, &q);
+    
+    int totalPrimes = countPrimes(p, q);
+    
+    printf("Number of prime numbers between %d and %d is : %d\n", p, q, totalPrimes);
+    return 0;
+}
+
+// 6. Salesgirl data
+
+int main() 
+{
+    int sales[4][3] = {
+        {310, 275, 365}, 
+        {210, 190, 325}, 
+        {405, 235, 240}, 
+        {260, 300, 380} 
+    };
+    
+    int grandTotal = 0;
+
+    printf("--- Sales by Each Girl ---\n");
+    for (int i = 0; i < 4; i++) {
+        int girlTotal = 0;
+        for (int j = 0; j < 3; j++) {
+            girlTotal += sales[i][j];
+        }
+        printf("Salesgirl #%d : %d\n", i + 1, girlTotal);
+    }
+
+    printf("\n--- Sales of Each Item ---\n");
+    for (int j = 0; j < 3; j++) {
+        int itemTotal = 0;
+        for (int i = 0; i < 4; i++) {
+            itemTotal += sales[i][j];
+        }
+        printf("Item %d : %d\n", j + 1, itemTotal);
+    }
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 3; j++) {
+            grandTotal += sales[i][j];
+        }
+    }
+    printf("\nGrand Total of All Sales : %d\n", grandTotal);
+
     return 0;
 }

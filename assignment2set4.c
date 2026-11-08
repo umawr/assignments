@@ -92,3 +92,40 @@ void automorphic(int input)
     printf("%d is not automorphic\n", input);
   return;
 }
+
+// 3. Sort array of elements in descending order
+
+void sort(int length, int array[length]);
+
+int main(void)
+{
+  int length;
+  printf("Enter length of the array\n");
+  scanf("%d", &length);
+  int array[length];
+  for(int i = 0; i < length; i++)
+  {
+   printf("Enter elements no. %d\n", i + 1);
+   scanf("%d", &array[i]);
+  }
+  sort(length, array);
+}
+
+void sort(int length, int array[length])
+{
+  for(int i = 1; i < length; i++)
+  {
+    int key = array[i];
+    int j = i - 1;
+    while (j >= 0 && array[j] > key)
+    {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = key;
+  }
+  printf("\nElements of the sorted array are\n");
+  for (int i = (length - 1); i >= 0; i--)
+    printf("Elements no. %d is %d\n", i + 1, array[i]);
+  return; 
+}

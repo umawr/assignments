@@ -215,3 +215,34 @@ int main()
 
     return 0;
 }
+
+// 7. Conditional macros
+
+// 8. Deciaml to hex
+
+void decToHex(int n) 
+{
+    if (n == 0) return;
+    
+    int rem = n % 16;
+    decToHex(n / 16);   
+    if (rem < 10)
+        printf("%d", rem);
+    else
+        printf("%c", rem - 10 + 'A');
+}
+
+int main() 
+{
+    int n;
+    printf("Input a decimal number : ");
+    scanf("%d", &n);
+    
+    printf("Hexadecimal equivalent : ");
+    if (n == 0)
+        printf("0");
+    else 
+        decToHex(n);
+    printf("\n");
+    return 0;
+}

@@ -1,3 +1,5 @@
+// IT-C SEM1 SPPS ASSIGNMENT 2 SET4
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
